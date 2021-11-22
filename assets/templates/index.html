@@ -7,7 +7,9 @@ Meu blog
 {% block 'conteudo' %}
     {% for artigo in artigos %}
         <div class="artigo">
-            <h2><a href="#">{{artigo.titulo}}</a></h2>
+
+            <!-- details não está funcionando -->
+            <h2><a href="{% url 'details' %}">{{artigo.titulo}}</a></h2>
             <p>{{artigo.snippet}}</p>
             <p>{{artigo.data}}</p>
         </div>
