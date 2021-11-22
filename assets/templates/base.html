@@ -1,0 +1,44 @@
+{% load static from static %}
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <title>{% block 'titulo' %}{% endblock 'titulo' %}</title>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <div class="logo">
+                <img src="https://c.tenor.com/zc-2K6hzygAAAAAC/tauren-wow.gif" alt="tauren-dançante">
+                <h1>Meu blog</h1>
+                <!--TODO > Redirecionar pra homepage-->
+            </div>
+            <div class="links">
+                <nav>
+                    <ul>
+                        <li><a href="#">Criar post</a></li>
+                        <li><a href="#">Sobre</a></li>
+                        <li><a href="https://www.youtube.com/watch?v=P3ynj6w2tII">Schinipp Schnapp</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="wrapper">
+            {% block 'conteudo' %}
+            {% endblock 'conteudo' %}
+        </div>
+    </main>
+    <div class="footer">
+        <footer>
+            <p>Feito em Python, Django, HTML e CSS por Victor William Hostert</p>
+        </footer>
+        <img src="https://www.imagenspng.com.br/wp-content/uploads/2020/10/among-us-purple-png-01.png" alt="logo">
+    </div>
+</body>
+</html>
