@@ -123,7 +123,7 @@ USE_TZ = True
 STATIC_URL = '/assets/static/'
 
 STATICFILES_DIRS = (
-    BASE_DIR / 'assets/static',
+    BASE_DIR / 'assets/static/',
 )
 
 # Default primary key field type
