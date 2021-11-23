@@ -19,42 +19,59 @@ li{
     display: inline-block;
 }
 .header img{
-    max-width: 50px;
-
+    max-width: 70px;
+    border-radius: 50px;
 }
 .header{
     padding: 10px;
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
-    height: 100px;
-    width: 100vw;
     justify-content: space-between;
     align-items: center;
     background-color: rgb(54, 0, 92);
+    height: 10vh;
+}
+.header *{
+    padding: 5px
+}
+.links li{
+    border: 3px solid white;
+    border-radius: 20px;
+    padding: 5px;
+    margin: 0 3px;
 }
 .logo{
     display: flex;
     align-items: center;
+    border: 3px solid white;
+    border-radius: 50px;
 }
 .logo h1{
     padding: 15px;
+    font-weight: bolder;
+    font-size: 1.3em;
 }
 .footer {
     display: flex;
-    height: 50px;
-    width: 100%;
     justify-content: space-between;
     align-content: center;
-    position: absolute;
-    bottom: 0;
-    margin-bottom: 10px;
-    padding: 10px;
+    height: 5vh;
+    padding: 5px;
 }
 .footer img{
-    width: 40px;
-    height: 40px;
+    max-width: 30px;
 }
-main{
-    height: calc(100% - 200px);
+.wrapper{
+    overflow: auto;
+    flex-basis: auto;
+    height: 85vh;
 }
+.article{
+    padding: 20px;
+    background-color: rgb(54, 0, 93);
+    margin: 20px auto;
+    width: 50%;
+    overflow: hidden;
+}
+

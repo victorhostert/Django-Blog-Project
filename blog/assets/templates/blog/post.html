@@ -1,13 +1,15 @@
 {% extends 'base.html' %}
 
-{% block 'titulo' %}
-{{artigo.slug}}
+{% block 'title' %}
+{{article.slug}}
 {% endblock %}
 
-{% block 'conteudo' %}
-    <div class="artigo">
-        <h2><a href="#">{{artigo.titulo}}</a></h2>
-        <p>{{artigo.snippet}}</p>
-        <p>{{artigo.data}}</p>
+{% block 'content' %}
+    <div class="article">
+        <h2><a href="#">{{article.title}}</a></h2>
+        <br>
+        <p>{{article.content}}</p>
+        <br>
+        <p>{{article.date}}</p>
     </div>
 {% endblock %}

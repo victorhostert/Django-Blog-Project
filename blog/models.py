@@ -1,18 +1,18 @@
 from django.db import models
 
-class Artigo(models.Model):
-    titulo = models.CharField(max_length=100)
+class Article(models.Model):
+    title = models.CharField(max_length=100)
     slug = models.SlugField()
-    conteudo = models.TextField()
-    data = models.DateField(auto_now_add=True)
-    #TODO:add thumb e author depois
+    content = models.TextField()
+    date = models.DateField(auto_now_add=True)
+
+    #TODO:add author later
 
     def __str__(self) -> str:
-        return self.titulo
+        return self.title
 
-    #template filters
     def snippet(self):
-        if len(self.conteudo) > 50:
-            return self.conteudo[:50] + "..."
+        if len(self.content) > 50:
+            return self.content[:50] + "..."
         else:
-            return self.conteudo
+            return self.content

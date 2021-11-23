@@ -7,20 +7,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'styles.css' %}">
-    <title>{% block 'titulo' %}{% endblock 'titulo' %}</title>
+    <title>{% block 'title' %}{% endblock 'title' %}</title>
 </head>
 <body>
     <header>
         <div class="header">
-            <div class="logo">
-                <a href="{% url 'blog:home' %}"><img src="https://c.tenor.com/zc-2K6hzygAAAAAC/tauren-wow.gif" alt="tauren-dançante"></a>
-                <a href="{% url 'blog:home' %}"><h1>Meu blog</h1></a>
-            </div>
+            <a href="{% url 'blog:home' %}">
+                <div class="logo">
+                    <img src="{% static 'logo.gif' %}" alt="tauren-dançante">
+                    <h1>My blog</h1>
+                </div>
+            </a>
             <div class="links">
                 <nav>
                     <ul>
-                        <li><a href="#">Criar post</a></li>
-                        <li><a href="#">Sobre</a></li>
+                        <li><a href="#">Sign in</a></li>
+                        <li><a href="#">Log in</a></li>
+                        <li><a href="{% url 'blog:about' %}">About</a></li>
                         <li><a href="https://www.youtube.com/watch?v=P3ynj6w2tII">Schinipp Schnapp</a></li>
                     </ul>
                 </nav>
@@ -29,15 +32,15 @@
     </header>
     <main>
         <div class="wrapper">
-            {% block 'conteudo' %}
-            {% endblock 'conteudo' %}
+            {% block 'content' %}
+            {% endblock 'content' %}
         </div>
     </main>
     <div class="footer">
         <footer>
-            <p>Feito em Python, Django, HTML e CSS por Victor William Hostert</p>
+            <p>Made in Python, Django, HTML and CSS by Victor William Hostert</p>
         </footer>
-        <img src="https://www.imagenspng.com.br/wp-content/uploads/2020/10/among-us-purple-png-01.png" alt="logo">
+        <a href="https://www.youtube.com/watch?v=grd-K33tOSM"><img src="{% static 'footer.png' %}" alt="sus"></a>
     </div>
 </body>
 </html>
