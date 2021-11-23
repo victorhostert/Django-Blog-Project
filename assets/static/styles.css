@@ -74,4 +74,10 @@ li{
     width: 50%;
     overflow: hidden;
 }
+.wrapper_form{
+    text-align: center;
+    border: 1px solid rgb(107, 0, 184);
+    background-color: rgb(107, 0, 184);
+    border-radius: 20px;
+}
 
