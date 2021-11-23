@@ -12,6 +12,6 @@ def blog(request):
 def about(request):
     return render(request, 'blog/about.html')
 
-def details(request, slug):
+def post(request, slug):
     artigo = Artigo.objects.get(slug=slug)
     return render(request, 'blog/post.html', {'artigo': artigo})

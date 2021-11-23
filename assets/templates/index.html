@@ -9,7 +9,7 @@ Meu blog
         <div class="artigo">
 
             <!-- details não está funcionando -->
-            <h2><a href="{% url 'details' %}">{{artigo.titulo}}</a></h2>
+            <h2><a href="{% url 'blog:post' slug=artigo.slug %}">{{artigo.titulo}}</a></h2>
             <p>{{artigo.snippet}}</p>
             <p>{{artigo.data}}</p>
         </div>
