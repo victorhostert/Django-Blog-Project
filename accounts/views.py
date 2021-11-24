@@ -14,6 +14,5 @@ def signin(request):
 
     return render(request, 'accounts/signin.html', {'form': form})
 
-    #TODO: django tutorial #20 6:45
 def login(request):
     return render(request, 'accounts/login.html')
