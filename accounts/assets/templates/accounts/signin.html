@@ -7,7 +7,7 @@ Sign In - My Blog
 {% block 'content' %}
     <div class="wrapper_form">
         <h2>Sign in</h2>
-        <form class="signin_form" action="/auth/signin/" method="POST">
+        <form class="signin_form" action="{% url 'accounts:signin' %}" method="POST">
             {% csrf_token %}
             {{form}}
             <input type="submit" value="Sign Up">
