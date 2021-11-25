@@ -4,7 +4,7 @@ from django.db.models.deletion import CASCADE
 
 class Article(models.Model):
     title = models.CharField(max_length=100)
-    slug = models.SlugField()
+    slug = models.SlugField(null=True)
     content = models.TextField()
     date = models.DateField(auto_now_add=True)
     thumb = models.ImageField(default='default.png', blank=True)
@@ -14,8 +14,8 @@ class Article(models.Model):
         return self.title
 
     def snippet(self):
-        if len(self.content) > 50:
-            return self.content[:50] + "..."
+        if len(self.content) > 30:
+            return self.content[:30] + "..."
         else:
             return self.content
 
@@ -24,3 +24,9 @@ class Article(models.Model):
             return self.thumb
         else:
             return None
+
+    def slugify(self):
+        title: str = self.title
+        words = title.split()
+        slug = "-".join(words).lower()
+        return slug

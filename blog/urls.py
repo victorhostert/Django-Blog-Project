@@ -12,8 +12,10 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('about/', views.about, name='about'),
     path('create/', views.article_create, name='create'),
-    #slug should always go last!
     path('<slug:slug>/', views.post, name='post'),
+    # path('update/<slug:slug>', views.article_update, name='update'),
+    path('delete_proceed/<slug:slug>/', views.article_delete_proceed, name='delete_proceed'),
+    path('delete/<slug:slug>/', views.article_delete, name='delete'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block 'title' %}
+Delete an article
+{% endblock %}
+
+{% block 'content' %}
+<div class="site_form">
+    <h2>Are you sure you want to delete {{article.title}}?</h2>
+    <a href="{% url 'blog:home' %}">Cancel</a>
+    <a href="{% url 'blog:delete' article.slug %}">Proceed</a>
+
+</div>
+{% endblock %}
