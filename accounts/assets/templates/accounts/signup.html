@@ -6,11 +6,12 @@ Sign Up - My Blog
 
 {% block 'content' %}
     <div class="wrapper_form">
-        <h2>Sign in</h2>
-        <form class="signup_form" action="{% url 'accounts:signup' %}" method="POST">
+        <form class="site_form" action="{% url 'accounts:signup' %}" method="POST">
+            <h2>Sign up</h2>
             {% csrf_token %}
             {{form}}
-            <input type="submit" value="Sign Up">
+            <br>
+            <button type="submit">Sign Up</button>
         </form>
     </div>
 {% endblock %}

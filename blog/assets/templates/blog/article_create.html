@@ -5,12 +5,12 @@
 {% endblock %}
 
 {% block 'content' %}
-    <form action="" method="post">
+    <div class="wrapper_form">
+        <form class="site_form" action="{% url 'blog:create' %}" method="post" enctype="multipart/form-data">
         <h2>Create an article</h2>
-        <form action="site-form" action="{% url 'blog:create' %}" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{form}}
-            <button type="submit">Create</button>
-        </form>
+        {% csrf_token %}
+        {{form}}
+        <button type="submit">Create</button>
     </form>
+    </div>
 {% endblock %}

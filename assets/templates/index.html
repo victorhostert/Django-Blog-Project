@@ -11,6 +11,7 @@ My blog
             <h2><a href="{% url 'blog:post' slug=article.slug %}">{{article.title}}</a></h2>
             <p>{{article.snippet}}</p>
             <p>{{article.date}}</p>
+            <p class="author_post">Posted by: <span>{{article.author.username}}</span></p>
         </div>
     {% endfor %}
 {% endblock %}
