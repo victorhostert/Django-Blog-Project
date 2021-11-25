@@ -21,8 +21,16 @@
             <div class="links">
                 <nav>
                     <ul>
-                        <li><a href="{% url 'accounts:signin' %}">Sign in</a></li>
+                        <li><a href="{% url 'accounts:signup' %}">Sign in</a></li>
                         <li><a href="{% url 'accounts:login' %}">Log in</a></li>
+                        <li>
+                            <form action="{% url 'accounts:logout' %}" method="post">
+                                {% csrf_token %}
+                                <div class="logout_button">
+                                    <button type="submit">Logout</button>
+                                </div>
+                            </form>
+                        </li>
                         <li><a href="{% url 'blog:about' %}">About</a></li>
                         <li><a href="https://www.youtube.com/watch?v=P3ynj6w2tII">Schinipp Schnapp</a></li>
                     </ul>

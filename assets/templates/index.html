@@ -5,7 +5,7 @@ My blog
 {% endblock %}
 
 {% block 'content' %}
-    {% for article in artigos %}
+    {% for article in articles %}
         <div class="article">
 
             <h2><a href="{% url 'blog:post' slug=article.slug %}">{{article.title}}</a></h2>

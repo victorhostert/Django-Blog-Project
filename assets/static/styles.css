@@ -32,9 +32,6 @@ li{
     background-color: rgb(54, 0, 92);
     height: 10vh;
 }
-.header *{
-    padding: 5px
-}
 .links li{
     border: 3px solid white;
     border-radius: 20px;
@@ -46,6 +43,7 @@ li{
     align-items: center;
     border: 3px solid white;
     border-radius: 50px;
+    padding: 5px;
 }
 .logo h1{
     padding: 15px;
@@ -67,6 +65,12 @@ li{
     flex-basis: auto;
     height: 85vh;
 }
+.about{
+    background-color: rgb(54, 0, 93);
+    margin: 20px auto;
+    text-align: center;
+    width: 50%;
+}
 .article{
     padding: 20px;
     background-color: rgb(54, 0, 93);
@@ -80,4 +84,17 @@ li{
     background-color: rgb(107, 0, 184);
     border-radius: 20px;
 }
-
+.logout_button *{
+    margin: 0;
+    background-color: rgb(54, 0, 93);
+    border: none;
+    font-size: 1em;
+    color: white;
+    font-family: 'Roboto', Arial, sans-serif;
+}
+button:hover{
+    cursor: pointer;
+}
+.user_img>*{
+    max-width: 80%;
+}
