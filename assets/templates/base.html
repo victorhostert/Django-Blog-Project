@@ -21,8 +21,7 @@
             <div class="links">
                 <nav>
                     <ul>
-                        <li><a href="{% url 'accounts:signup' %}">Sign in</a></li>
-                        <li><a href="{% url 'accounts:login' %}">Log in</a></li>
+                        {% if user.is_authenticated %}
                         <li>
                             <form action="{% url 'accounts:logout' %}" method="post">
                                 {% csrf_token %}
@@ -31,6 +30,11 @@
                                 </div>
                             </form>
                         </li>
+                        <li><a href="{% url 'blog:create' %}">New Article</a></li>
+                        {% else %}
+                        <li><a href="{% url 'accounts:signup' %}">Sign in</a></li>
+                        <li><a href="{% url 'accounts:login' %}">Log in</a></li>
+                        {% endif %}
                         <li><a href="{% url 'blog:about' %}">About</a></li>
                         <li><a href="https://www.youtube.com/watch?v=P3ynj6w2tII">Schinipp Schnapp</a></li>
                     </ul>
