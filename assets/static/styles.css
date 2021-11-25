@@ -21,6 +21,7 @@ li{
 .header img{
     max-width: 70px;
     border-radius: 50px;
+    max-height: 40px;
 }
 .header{
     padding: 10px;
@@ -49,7 +50,7 @@ li{
 .logo h1{
     padding: 15px;
     font-weight: bolder;
-    font-size: 1.3em;
+    font-size: 0.8em;
     color: indigo;
 }
 .footer{
@@ -61,8 +62,11 @@ li{
     background-color: #36005C;
     font-size: 0.8em;
 }
-.footer img{
-    max-width: 30px;
+.wrapper img{
+    max-width: 20px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
 .wrapper{
     overflow: auto;
