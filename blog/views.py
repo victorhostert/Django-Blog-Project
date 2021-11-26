@@ -40,7 +40,7 @@ def article_update(request, slug):
             instance.save()
             return redirect('blog:home')
     else:
-        form = forms.CreateArticle()
+        form = forms.CreateArticle(instance=article)
     context = {'article': article, 'form': form,}
     return render(request, 'blog/article_update.html', context)
 
