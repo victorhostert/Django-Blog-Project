@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -6,9 +6,9 @@
 }
 body{
     background-color: rgb(63, 1, 107);
-    font-size: 1.5em;
+    font-size: 1.2em;
     color: white;
-    font-family: 'Roboto', Arial, sans-serif;
+    font-family: 'Outfit', sans-serif;
 }
 a{
     color: white;
@@ -107,15 +107,24 @@ button:hover{
 .author_post span{
     text-transform: capitalize;
 }
+/*TODO> Learn how to style this shit*/
 .site_form{
     width: 50%;
     margin: 30px auto;
+
 }
 .site_form *{
-    display: block;  
-    margin: 5px auto 10px auto;
     padding: 10px;
     border-radius: 20px;
+}
+.site_form label{  
+    display: block;
+}
+.site_form input{
+    display: inline-block;
+}
+.site_form a{
+    display: block;
 }
 .site_form button{
     color: white;
