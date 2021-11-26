@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
+{% load static from static %}
 
 {% block 'title' %}
 My blog
 {% endblock %}
 
 {% block 'content' %}
+    {% if articles %}
     {% for article in articles %}
         <div class="article">
 
@@ -14,4 +16,12 @@ My blog
             <p class="author_post">Posted by: <span>{{article.author.username}}</span></p>
         </div>
     {% endfor %}
+    {% else %}
+        <div class="article" style="text-align:center;">
+            <h2>Wow, looks empty</h1>
+            <p>To start, sign up and post an article!</p>
+            <br>
+            <img src="{% static 'thumbsup.jpg' %}" alt="thumbsup">
+        </div>
+    {% endif %}
 {% endblock %}

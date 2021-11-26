@@ -7,7 +7,7 @@ class Article(models.Model):
     slug = models.SlugField(null=True)
     content = models.TextField()
     date = models.DateField(auto_now_add=True)
-    thumb = models.ImageField(default='default.png', blank=True)
+    thumb = models.ImageField(null=True, blank=True)
     author = models.ForeignKey(User, default=None, on_delete=CASCADE)
 
     def __str__(self) -> str:

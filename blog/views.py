@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render, get_object_or_404
-from .models import Article
 from django.contrib.auth.decorators import login_required
+from .models import Article
 from . import forms
 
 
@@ -34,16 +34,15 @@ def article_create(request):
 def article_update(request, slug):
     article = get_object_or_404(Article, slug=slug)
     if request.method == 'POST':
-        form = forms.CreateArticle(request.POST, request.FILES, instance=article) 
+        form = forms.CreateArticle(request.POST, request.FILES, instance=article)
         if form.is_valid():
             instance = form.save(commit=False)
-            instance.author = request.user
             instance.save()
             return redirect('blog:home')
     else:
         form = forms.CreateArticle()
-    context = {'form': form}
-    return render(request, 'blog/article_create.html', context)
+    context = {'article': article, 'form': form,}
+    return render(request, 'blog/article_update.html', context)
 
 @login_required(login_url="/auth/login/")
 def article_delete_proceed(request, slug):
