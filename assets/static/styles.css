@@ -31,7 +31,7 @@ li{
     justify-content: space-between;
     align-items: center;
     background-color: rgb(54, 0, 92);
-    height: 10vh;
+    height: 13vh;
 }
 .links li{
     border: 3px solid white;
@@ -62,16 +62,10 @@ li{
     background-color: #36005C;
     font-size: 0.8em;
 }
-.wrapper img{
-    max-width: 20px;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-}
 .wrapper{
     overflow: auto;
     flex-basis: auto;
-    height: 85vh;
+    height: 82vh;
 }
 .about{
     background-color: rgb(54, 0, 93);
@@ -114,7 +108,8 @@ button:hover{
     text-transform: capitalize;
 }
 .site_form{
-    border: 1px solid indigo;
+    width: 50%;
+    margin: 30px auto;
 }
 .site_form *{
     display: block;  
@@ -140,4 +135,19 @@ button:hover{
     border: 1px solid #ff5722;
     color: #ff5722;
     border-radius: 20px;
+}
+.options{
+    display: flex;
+    flex-wrap: nowrap;
+    width: 50%;
+    margin: 0 auto;
+    justify-content: space-evenly;
+}
+.options *{
+    border: 3px solid white;
+    border-radius: 20px;
+    padding: 10px;
+}
+.options_title{
+    text-align: center;
 }
