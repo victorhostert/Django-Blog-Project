@@ -12,7 +12,7 @@ def about(request):
     return render(request, 'blog/about.html')
 
 def post(request, slug):
-    article = Article.objects.get(slug=slug)
+    article = get_object_or_404(Article, slug=slug)
     return render(request, 'blog/post.html', {'article': article})
 
 @login_required(login_url="/auth/login/")
@@ -32,7 +32,7 @@ def article_create(request):
 
 @login_required(login_url="/auth/login/")
 def article_update(request, slug):
-    article = Article.objects.get(slug=slug)
+    article = get_object_or_404(Article, slug=slug)
     if request.method == 'POST':
         form = forms.CreateArticle(request.POST, request.FILES, instance=article) 
         if form.is_valid():
@@ -51,6 +51,7 @@ def article_delete_proceed(request, slug):
     context = {'article': article}
     return render(request, 'blog/article_delete_proceed.html', context)
 
+@login_required(login_url="/auth/login/")
 def article_delete(request, slug):
     article = get_object_or_404(Article, slug=slug)
     article.delete()

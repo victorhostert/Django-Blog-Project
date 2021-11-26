@@ -17,4 +17,10 @@
         </div>
         <p class="author_post">Posted by: <span>{{article.author.username}}</span></p>
     </div>
+    <div class="update_delete">
+        {% if user.is_authenticated and user == article.author%}
+        <a href="{% url 'blog:update' slug=article.slug %}">Update this Article</a>
+        <a href="{% url 'blog:delete_proceed' slug=article.slug %}">Delete this Article</a>
+    {% endif %}
+    </div>
 {% endblock %}
