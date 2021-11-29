@@ -133,6 +133,11 @@ button:hover{
     border-radius: 20px;
     font-size: 1.1em;
 }
+.site_form #thumb-clear_id{
+    position: relative;
+    top: 35px;
+    left: 150px;
+}
 .helptext, .helptext ul{
     font-size: 1rem;
     margin: 0 auto;
@@ -159,4 +164,7 @@ button:hover{
 }
 .options_title{
     text-align: center;
+}
+.site_form #text{
+    border: 5px solid red;
 }
