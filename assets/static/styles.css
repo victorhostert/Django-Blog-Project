@@ -107,7 +107,6 @@ button:hover{
 .author_post span{
     text-transform: capitalize;
 }
-/*TODO> Learn how to style this shit*/
 .site_form{
     width: 50%;
     margin: 30px auto;
@@ -132,6 +131,11 @@ button:hover{
     border: 3px solid white;
     border-radius: 20px;
     font-size: 1.1em;
+}
+.site_form #thumb-clear_id{
+    position: relative;
+    top: 35px;
+    left: 150px;
 }
 .helptext, .helptext ul{
     font-size: 1rem;
@@ -159,4 +163,7 @@ button:hover{
 }
 .options_title{
     text-align: center;
+}
+.site_form #text{
+    border: 5px solid red;
 }
