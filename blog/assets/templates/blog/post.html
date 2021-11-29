@@ -12,9 +12,11 @@
         <br>
         <p>{{article.date}}</p>
         <br>
+        {% if article.thumb %}
         <div class="user_img">
             <img src="{{article.thumbnail.url}}" alt="user-image">
         </div>
+        {% endif %}
         <p class="author_post">Posted by: <span>{{article.author.username}}</span></p>
     </div>
     <div class="update_delete">

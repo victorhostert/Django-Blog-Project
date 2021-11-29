@@ -33,6 +33,9 @@ li{
     background-color: rgb(54, 0, 92);
     height: 13vh;
 }
+.header span{
+    text-transform: capitalize;
+}
 .links li{
     border: 3px solid white;
     border-radius: 20px;
@@ -58,6 +61,7 @@ li{
     justify-content: space-between;
     align-content: center;
     height: 5vh;
+    line-height: 4vh;
     padding: 5px;
     background-color: #36005C;
     font-size: 0.8em;
@@ -131,6 +135,8 @@ button:hover{
     border: 3px solid white;
     border-radius: 20px;
     font-size: 1.1em;
+    display: block;
+    margin: 0 auto;
 }
 .site_form #thumb-clear_id{
     position: relative;

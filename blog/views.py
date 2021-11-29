@@ -15,6 +15,15 @@ def post(request, slug):
     article = get_object_or_404(Article, slug=slug)
     return render(request, 'blog/post.html', {'article': article})
 
+def search(request):
+    if request.method == 'POST':
+        search = request.GET.get('title')
+        for item in search:
+            article = [].append(Article.objects.filter(item))
+        return render(request, 'index.html', {'article': article})
+    else:
+        return render(request, 'blog/article_search.html')
+
 @login_required(login_url="/auth/login/")
 def article_create(request):
     if request.method == 'POST':

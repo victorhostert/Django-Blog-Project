@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from slugify import slugify
 from django.db.models.deletion import CASCADE
 
 class Article(models.Model):
@@ -27,6 +28,5 @@ class Article(models.Model):
 
     def slugify(self):
         title: str = self.title
-        words = title.split()
-        slug = "-".join(words).lower()
+        slug = slugify(title)
         return slug
