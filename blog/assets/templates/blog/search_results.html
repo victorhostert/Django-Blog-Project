@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block 'title' %}
+Search Results
+{% endblock %}
+
+{% block 'content' %}
+    {% if articles %}
+    {% for article in articles %}
+        <div class="article">
+
+            <h2><a href="{% url 'blog:post' slug=article.slug %}">{{article.title}}</a></h2>
+            <p style="font-size: 1.2em; margin: 10px;">{{article.snippet}}</p>
+            <p style="font-size: 0.8em;">{{article.date}}</p>
+            <p class="author_post">Posted by: <span>{{article.author.username}}</span></p>
+        </div>
+    {% endfor %}
+    {% else %}
+        <div class="article" style="text-align:center;">
+            <h2>Your search didn't find any results!</h1>
+            <p>Try checking your spelling, or search for something else</p>
+            <br>
+        </div>
+    {% endif %}
+{% endblock %}

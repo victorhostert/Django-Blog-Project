@@ -6,12 +6,11 @@ Search
 
 {% block 'content' %}
 <div class="site_form">
-    <form action="{% url 'blog:search' search=search %}" method="post">
+    <form action="{% url 'blog:search' %}" method="post">
         {% csrf_token %}
         <h2>Search for an article</h2>
-        <label for="search">Search by title</label>
-        <input type="text" name="search" id="search">
-        <button type="submit">Submit</button>
+        {{form}}
+        <button type="submit">Search</button>
     </form>
 </div>
 {% endblock %}

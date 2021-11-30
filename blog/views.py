@@ -1,5 +1,6 @@
 from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 from .models import Article
 from . import forms
 
@@ -18,10 +19,13 @@ def post(request, slug):
 def search(request):
     if request.method == 'POST':
         search = request.POST.get('search')
-        article = Article.objects.filter(search)
-        return render(request, 'index.html', {'article': article})
+        articles = Article.objects.filter(
+            Q(title=search) | Q(content=search)
+        )
+        return render(request, 'blog/search_results.html', {'articles': articles})
     else:
-        return render(request, 'blog/article_search.html')
+        form = forms.SearchForm()
+        return render(request, 'blog/article_search.html', {'form': form})
 
 @login_required(login_url="/auth/login/")
 def article_create(request):
