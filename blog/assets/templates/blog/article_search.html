@@ -5,8 +5,8 @@ Search
 {% endblock %}
 
 {% block 'content' %}
-<div class="search_article">
-    <form action="{% url 'blog:search' title = search%}" method="post">
+<div class="site_form">
+    <form action="{% url 'blog:search' search=search %}" method="post">
         {% csrf_token %}
         <h2>Search for an article</h2>
         <label for="search">Search by title</label>

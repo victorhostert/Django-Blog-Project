@@ -17,9 +17,8 @@ def post(request, slug):
 
 def search(request):
     if request.method == 'POST':
-        search = request.GET.get('title')
-        for item in search:
-            article = [].append(Article.objects.filter(item))
+        search = request.POST.get('search')
+        article = Article.objects.filter(search)
         return render(request, 'index.html', {'article': article})
     else:
         return render(request, 'blog/article_search.html')
@@ -31,7 +30,7 @@ def article_create(request):
         if form.is_valid():
             instance = form.save(commit=False)
             instance.author = request.user
-            instance.slug = instance.slugify()
+            instance.slug = instance.model_slugify()
             instance.save()
             return redirect('blog:home')
     else:
