@@ -1,5 +1,5 @@
 {
-    "name": "django-blog-project",
+    "name": "blog-django-victor",
     "version": "1.0.0",
     "description": "A small blog in Django",
     "scripts": {
