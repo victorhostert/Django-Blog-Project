@@ -9,7 +9,8 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = [
-    'blog-django-victor.herokuapp.com'
+    'blog-django-victor.herokuapp.com',
+    'herokuapp.com'
 ]
 
 
