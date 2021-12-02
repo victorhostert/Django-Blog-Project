@@ -1,12 +1,11 @@
 from pathlib import Path
 import django_heroku
-from .secret_settings import *
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = SECRET_KEY
-DEBUG = DEBUG
+SECRET_KEY = "a^8o9&gc13y9$dph30g7vabfvs&&7wawa!l2-o43d6ru7bw$k5"
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'blog-django-victor.herokuapp.com',
