@@ -9,16 +9,18 @@ My blog
     {% if articles %}
     {% for article in articles %}
         <div class="article">
-
-            <h2 class="article_title"><a href="{% url 'blog:post' slug=article.slug %}">{{article.title}}</a></h2>
+            <a href="{% url 'blog:post' slug=article.slug %}">
+            <h2 class="article_title">{{article.title}}</h2>
             <p class="article_snippet">{{article.snippet}}</p>
             {% if article.thumb %}
             <img src="{{article.thumbnail.url}}" alt="user-img">
             {% endif %}
             <div class="article_footer">
                 <p class="article_date">{{article.date}}</p>
+                <p>{{article.category}}</p>
                 <p class="article_author">Posted by: <span>{{article.author.username}}</span></p>
             </div>
+            </a>
         </div>
     {% endfor %}
     {% else %}

@@ -179,7 +179,7 @@ button:hover{
     border-radius: 20px;
     font-size: 1.1em;
     display: block;
-    margin: 0 auto;
+    margin: 20px auto;
 }
 .site_form #thumb-clear_id{
     position: relative;

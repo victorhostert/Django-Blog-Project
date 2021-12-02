@@ -3,6 +3,13 @@ from django.contrib.auth.models import User
 from django.db.models.deletion import CASCADE
 from django.utils.text import slugify
 
+class Category(models.Model):
+    name = models.CharField(max_length=100)
+
+
+    def __str__(self) -> str:
+        return self.name
+
 class Article(models.Model):
     title = models.CharField(max_length=100)
     slug = models.SlugField(null=True)
@@ -10,6 +17,7 @@ class Article(models.Model):
     date = models.DateField(auto_now_add=True)
     thumb = models.ImageField(null=True, blank=True)
     author = models.ForeignKey(User, default=None, on_delete=CASCADE)
+    category = models.ForeignKey(Category, default='No category',on_delete=CASCADE)
 
     def __str__(self) -> str:
         return self.title
