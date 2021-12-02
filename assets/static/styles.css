@@ -84,6 +84,31 @@ li{
     width: 50%;
     overflow: hidden;
 }
+.article_title{
+    text-align: center;
+    margin: 10px auto;
+}
+.article_snippet{
+    margin: 20px 30px;
+    font-size: 1.2em;
+}
+.article img{
+    display: block;
+    margin: 20px auto;
+    max-width: 50%;
+}
+.article_author{
+    text-align: center;
+}
+.article_author span{
+    text-transform: capitalize;
+}
+.article_footer{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin: 10px 30px;
+}
 .wrapper_form{
     text-align: center;
     border: 3px solid rgb(107, 0, 184);
@@ -104,12 +129,6 @@ button:hover{
 }
 .user_img>*{
     max-width: 80%;
-}
-.author_post{
-    text-align: center;
-}
-.author_post span{
-    text-transform: capitalize;
 }
 .site_form{
     width: 50%;
