@@ -23,7 +23,7 @@ def search(request):
     if request.method == 'POST':
         search = request.POST.get('search')
         articles = Article.objects.filter(
-            Q(title=search) | Q(content=search)
+            Q(title=search) | Q(content=search) | Q(category__name=search) | Q(author__username=search)
         )
         return render(request, 'blog/search_results.html', {'articles': articles})
     else:

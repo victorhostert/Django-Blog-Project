@@ -5,11 +5,10 @@ from django.utils.text import slugify
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
-
-
     def __str__(self) -> str:
         return self.name
 
+        
 class Article(models.Model):
     title = models.CharField(max_length=100)
     slug = models.SlugField(null=True)

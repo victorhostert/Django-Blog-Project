@@ -7,4 +7,4 @@ class CreateArticle(forms.ModelForm):
         fields = ['title', 'content', 'thumb', 'category']
 
 class SearchForm(forms.Form):
-    search = forms.CharField(label='Search', max_length=80, required=False)
+    search = forms.CharField(label='Search', max_length=80, required=True)

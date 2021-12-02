@@ -12,6 +12,7 @@ Search Results
             <h2><a href="{% url 'blog:post' slug=article.slug %}">{{article.title}}</a></h2>
             <p style="font-size: 1.2em; margin: 10px;">{{article.snippet}}</p>
             <p style="font-size: 0.8em;">{{article.date}}</p>
+            <p>{{article.category}}</p>
             <p class="author_post">Posted by: <span>{{article.author.username}}</span></p>
         </div>
     {% endfor %}
