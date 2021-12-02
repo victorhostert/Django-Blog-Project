@@ -5,19 +5,16 @@
 {% endblock %}
 
 {% block 'content' %}
-    <div class="article">
-        <h2><a href="#">{{article.title}}</a></h2>
-        <br>
-        <p>{{article.content}}</p>
-        <br>
-        <p>{{article.date}}</p>
-        <br>
+    <div class="post">
+        <h2 class="post_title"><a href="{% url 'blog:post' slug=article.slug %}">{{article.title}}</a></h2>
+        <p class="post_snippet">{{article.snippet}}</p>
         {% if article.thumb %}
-        <div class="user_img">
-            <img src="{{article.thumbnail.url}}" alt="user-image">
-        </div>
+        <img src="{{article.thumbnail.url}}" alt="user-img">
         {% endif %}
-        <p class="author_post">Posted by: <span>{{article.author.username}}</span></p>
+        <div class="article_footer">
+            <p class="article_date">{{article.date}}</p>
+            <p class="article_author">Posted by: <span>{{article.author.username}}</span></p>
+        </div>
     </div>
     <div class="update_delete">
         {% if user.is_authenticated and user == article.author%}

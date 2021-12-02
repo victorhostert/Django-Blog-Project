@@ -96,6 +96,8 @@ li{
     display: block;
     margin: 20px auto;
     max-width: 50%;
+    border: 3px solid white;
+    border-radius: 20px;
 }
 .article_author{
     text-align: center;
@@ -108,6 +110,28 @@ li{
     flex-wrap: nowrap;
     justify-content: space-between;
     margin: 10px 30px;
+}
+.post{
+    padding: 40px;
+    background-color: rgb(54, 0, 93);
+    margin: 20px auto;
+    width: 60%;
+}
+.post_title{
+    text-align: center;
+    font-size: 2em;
+    margin: 10px auto;
+}
+.post_snippet{
+    margin: 20px 30px;
+    font-size: 1.5em;
+}
+.post img{
+    display: block;
+    margin: 40px auto;
+    max-width: 80%;
+    border: 3px solid white;
+    border-radius: 20px;
 }
 .wrapper_form{
     text-align: center;
@@ -191,4 +215,7 @@ button:hover{
 }
 .site_form #text{
     border: 5px solid red;
+}
+.update_delete{
+    margin-bottom: 30px;
 }
