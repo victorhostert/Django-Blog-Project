@@ -8,12 +8,18 @@ Search Results
     {% if articles %}
     {% for article in articles %}
         <div class="article">
-
-            <h2><a href="{% url 'blog:post' slug=article.slug %}">{{article.title}}</a></h2>
-            <p style="font-size: 1.2em; margin: 10px;">{{article.snippet}}</p>
-            <p style="font-size: 0.8em;">{{article.date}}</p>
-            <p>{{article.category}}</p>
-            <p class="author_post">Posted by: <span>{{article.author.username}}</span></p>
+            <a href="{% url 'blog:post' slug=article.slug %}">
+            <h2 class="article_title">{{article.title}}</h2>
+            <p class="article_snippet">{{article.snippet}}</p>
+            {% if article.thumb %}
+            <img src="{{article.thumbnail.url}}" alt="user-img">
+            {% endif %}
+            <div class="article_footer">
+                <p class="article_date">{{article.date}}</p>
+                <p>{{article.category}}</p>
+                <p class="article_author">Posted by: <span>{{article.author.username}}</span></p>
+            </div>
+            </a>
         </div>
     {% endfor %}
     {% else %}
