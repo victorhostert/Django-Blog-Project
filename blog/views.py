@@ -6,7 +6,10 @@ from . import forms
 
 
 def home(request):
-    articles = Article.objects.all().order_by('date')[::-1]
+    try:
+        articles = Article.objects.filter(author = request.user).order_by('date')[::-1]
+    except TypeError:
+        articles = None
     return render(request, 'index.html', {'articles': articles})
 
 def about(request):
