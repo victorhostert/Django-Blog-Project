@@ -30,13 +30,23 @@ def post(request, slug):
     else:
         form = forms.CommentForm()
     return render(request, 'blog/post.html', {'article': article, 'form': form, 'comments': comments})
-
 def search(request):
     if request.method == 'POST':
-        search = request.POST.get('search')
-        articles = Article.objects.filter(
-            Q(title=search) | Q(content=search) | Q(category__name=search) | Q(author__username=search)
-        )
+        search = request.POST.get('search').lower()
+        all_articles = Article.objects.all()
+        articles = []
+        for article in all_articles:
+            if search in article.title.lower():
+                articles.append(article)
+            if search in article.content.lower():
+                articles.append(article)
+            if search in article.author.username.lower():
+                articles.append(article)
+            if search in article.category.name.lower():
+                articles.append(article)
+
+        articles = list(dict.fromkeys(articles))[::-1]
+
         return render(request, 'blog/search_results.html', {'articles': articles})
     else:
         form = forms.SearchForm()
