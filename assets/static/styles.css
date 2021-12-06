@@ -219,3 +219,48 @@ button:hover{
 .update_delete{
     margin-bottom: 30px;
 }
+.comments{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 60%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #36005D;
+}
+.comment{
+    margin: 20px 30px;
+    padding: 20px;
+    border: 3px solid white;
+    border-radius: 20px;
+}
+.create_comment{
+    width: 60%;
+    margin: 30px auto;
+    background-color: #36005D;
+    padding: 20px;
+}
+.create_comment *{
+    display: block;
+}
+.create_comment label{
+    display: none;
+}
+.create_comment button{
+    color: white;
+    background-color: indigo;
+    border: 3px solid white;
+    border-radius: 20px;
+    font-size: 1.1em;
+    display: block;
+    margin: 20px auto;
+    padding: 10px;
+}
+.create_comment textarea{
+    height: 50px;
+    width: 60%;
+    margin: 20px auto;
+    border: 3px solid white;
+    border-radius: 20px;
+    padding: 10px;
+}

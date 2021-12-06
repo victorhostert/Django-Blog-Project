@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from .models import Article, Category
+from .models import Article, Category, Comment
 from . import forms
 
 
@@ -17,7 +17,18 @@ def about(request):
 
 def post(request, slug):
     article = get_object_or_404(Article, slug=slug)
-    return render(request, 'blog/post.html', {'article': article})
+    comments = Comment.objects.filter(author=request.user)
+    if request.method == 'POST':
+        form = forms.CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.content = request.POST.get('content')
+            comment.article = article
+            comment.author = request.user
+            comment.save()
+    else:
+        form = forms.CommentForm()
+    return render(request, 'blog/post.html', {'article': article, 'form': form, 'comments': comments})
 
 def search(request):
     if request.method == 'POST':
@@ -41,6 +52,7 @@ def article_create(request):
             instance.save()
             return redirect('blog:home')
     else:
+        Category.create_default_category()
         form = forms.CreateArticle()
     context = {'form': form}
     return render(request, 'blog/article_create.html', context)

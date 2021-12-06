@@ -17,6 +17,29 @@
             <p class="article_author">Posted by: <span>{{article.author.username}}</span></p>
         </div>
     </div>
+    {% if comments %}
+    <div class="comments">
+        <h2>Comments:</h3>
+        {% for comment in comments %}
+        <div class="comment">
+            <h3>{{comment.author}}</h3>
+            <p>{{comment.content}}</p>
+            <p>{{comment.date}}</p>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% if user.is_authenticated %}
+    <div class="create_comment">
+        <form action="{% url 'blog:post' slug=article.slug %}", method="POST">
+            <h3>Leave a comment:</h3>
+            {% csrf_token %}
+            {{form}}
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    {% endif %}
+        
     <div class="update_delete">
         {% if user.is_authenticated and user == article.author%}
         <div class="options">
