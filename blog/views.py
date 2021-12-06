@@ -9,7 +9,7 @@ from accounts.decorators import allowed_users
 def home(request):
     try:
         articles = Article.objects.all().order_by('date')[::-1]
-        paginator = Paginator(articles, 10)
+        paginator = Paginator(articles, 3)
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
     except TypeError:
