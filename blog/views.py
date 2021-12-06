@@ -18,7 +18,7 @@ def about(request):
 
 def post(request, slug):
     article = get_object_or_404(Article, slug=slug)
-    comments = Comment.objects.filter(author=request.user)
+    comments = Comment.objects.filter(article=article)
     if request.method == 'POST':
         form = forms.CommentForm(request.POST)
         if form.is_valid():

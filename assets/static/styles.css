@@ -83,6 +83,8 @@ li{
     margin: 20px auto;
     width: 50%;
     overflow: hidden;
+    border: 3px solid rgb(107, 0, 184);
+    border-radius: 20px;
 }
 .article_title{
     text-align: center;
@@ -114,6 +116,8 @@ li{
 .post{
     padding: 40px;
     background-color: rgb(54, 0, 93);
+    border: 3px solid rgb(107, 0, 184);
+    border-radius: 20px;
     margin: 20px auto;
     width: 60%;
 }
@@ -227,6 +231,8 @@ button:hover{
     margin: 0 auto;
     padding: 20px;
     background-color: #36005D;
+    border: 3px solid rgb(107, 0, 184);
+    border-radius: 20px;
 }
 .comment{
     margin: 20px 30px;
@@ -245,6 +251,8 @@ button:hover{
     margin: 30px auto;
     background-color: #36005D;
     padding: 20px;
+    border: 3px solid rgb(107, 0, 184);
+    border-radius: 20px;
 }
 .create_comment *{
     display: block;

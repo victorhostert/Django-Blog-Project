@@ -12,6 +12,12 @@ class Category(models.Model):
     def create_default_category():
         if not Category.objects.all():
             Category.objects.create(name="No category")
+            Category.objects.create(name="Technology")
+            Category.objects.create(name="Science")
+            Category.objects.create(name="Entertainment")
+            Category.objects.create(name="Sports")
+            Category.objects.create(name="Funny")
+            Category.objects.create(name="Disclaimer")
         
 class Article(models.Model):
     title = models.CharField(max_length=100)
