@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from django.db.models import Q
+from django.core.paginator import Paginator
 from .models import Article, Category, Comment
 from . import forms
 from accounts.decorators import allowed_users
@@ -9,9 +9,12 @@ from accounts.decorators import allowed_users
 def home(request):
     try:
         articles = Article.objects.all().order_by('date')[::-1]
+        paginator = Paginator(articles, 10)
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
     except TypeError:
         articles = None
-    return render(request, 'index.html', {'articles': articles})
+    return render(request, 'index.html', {'articles': page_obj})
 
 def about(request):
     return render(request, 'blog/about.html')

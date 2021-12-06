@@ -103,6 +103,7 @@ li{
 }
 .article_author{
     text-align: center;
+    border: none;
 }
 .article_author span{
     text-transform: capitalize;
@@ -277,4 +278,20 @@ button:hover{
     border: 3px solid white;
     border-radius: 20px;
     padding: 10px;
+}
+.pagination{
+    width: fit-content;
+    margin: 50px auto;
+    background-color: #36005D;
+    padding: 20px;
+    border-radius: 20px;
+}
+.pagination *{
+    margin: 10px;
+    padding: 10px
+}
+.pagination a{
+    
+    border: 3px solid rgb(107, 0, 184);
+    border-radius: 20px;
 }
