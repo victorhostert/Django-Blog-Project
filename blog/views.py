@@ -3,11 +3,12 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .models import Article, Category, Comment
 from . import forms
+from accounts.decorators import allowed_users
 
 
 def home(request):
     try:
-        articles = Article.objects.filter(author = request.user).order_by('date')[::-1]
+        articles = Article.objects.all().order_by('date')[::-1]
     except TypeError:
         articles = None
     return render(request, 'index.html', {'articles': articles})
@@ -42,6 +43,7 @@ def search(request):
         return render(request, 'blog/article_search.html', {'form': form})
 
 @login_required(login_url="/auth/login/")
+@allowed_users(allowed_roles=['admin'])
 def article_create(request):
     if request.method == 'POST':
         form = forms.CreateArticle(request.POST, request.FILES)
@@ -58,6 +60,7 @@ def article_create(request):
     return render(request, 'blog/article_create.html', context)
 
 @login_required(login_url="/auth/login/")
+@allowed_users(allowed_roles=['admin'])
 def article_update(request, slug):
     article = get_object_or_404(Article, slug=slug)
     if request.method == 'POST':
@@ -72,12 +75,14 @@ def article_update(request, slug):
     return render(request, 'blog/article_update.html', context)
 
 @login_required(login_url="/auth/login/")
+@allowed_users(allowed_roles=['admin'])
 def article_delete_proceed(request, slug):
     article = get_object_or_404(Article, slug=slug)
     context = {'article': article}
     return render(request, 'blog/article_delete_proceed.html', context)
 
 @login_required(login_url="/auth/login/")
+@allowed_users(allowed_roles=['admin'])
 def article_delete(request, slug):
     article = get_object_or_404(Article, slug=slug)
     article.delete()

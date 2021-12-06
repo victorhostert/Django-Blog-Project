@@ -30,7 +30,9 @@
                                 </div>
                             </form>
                         </li>
+                        {% if user.is_staff %}
                         <li><a href="{% url 'blog:create' %}">New Article</a></li>
+                        {% endif %}
                         {% else %}
                         <li><a href="{% url 'accounts:signup' %}">Sign up</a></li>
                         <li><a href="{% url 'accounts:login' %}">Log in</a></li>

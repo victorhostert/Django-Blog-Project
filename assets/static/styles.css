@@ -234,6 +234,12 @@ button:hover{
     border: 3px solid white;
     border-radius: 20px;
 }
+.comment h3{
+    text-transform: capitalize;
+}
+.comment_content{
+    margin: 20px;
+}
 .create_comment{
     width: 60%;
     margin: 30px auto;
