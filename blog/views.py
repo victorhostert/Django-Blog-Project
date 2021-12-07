@@ -33,6 +33,7 @@ def post(request, slug):
     else:
         form = forms.CommentForm()
     return render(request, 'blog/post.html', {'article': article, 'form': form, 'comments': comments})
+
 def search(request):
     if request.method == 'POST':
         search = request.POST.get('search').lower()
@@ -49,7 +50,6 @@ def search(request):
                 articles.append(article)
 
         articles = list(dict.fromkeys(articles))[::-1]
-
         return render(request, 'blog/search_results.html', {'articles': articles})
     else:
         form = forms.SearchForm()
@@ -79,8 +79,7 @@ def article_update(request, slug):
     if request.method == 'POST':
         form = forms.CreateArticle(request.POST, request.FILES, instance=article)
         if form.is_valid():
-            instance = form.save(commit=False)
-            instance.save()
+            form.save()
             return redirect('blog:home')
     else:
         form = forms.CreateArticle(instance=article)
@@ -100,3 +99,18 @@ def article_delete(request, slug):
     article = get_object_or_404(Article, slug=slug)
     article.delete()
     return redirect('blog:home')
+
+@login_required(login_url="/auth/login/")
+def comment_update(request, slug, id):
+    comment = get_object_or_404(Comment, id=id)
+    if request.method == 'POST':
+        comment.content = request.POST.get('update_comment')
+        comment.save()
+    return redirect('blog:post', slug=slug)
+
+@login_required(login_url="/auth/login/")
+def comment_delete(request, slug, id):
+    comment = get_object_or_404(Comment, id=id)
+    if request.method == 'POST':
+        comment.delete()
+    return redirect('blog:post', slug=slug)

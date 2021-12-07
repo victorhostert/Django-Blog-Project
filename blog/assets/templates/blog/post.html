@@ -7,7 +7,7 @@
 {% block 'content' %}
     <div class="post">
         <h2 class="post_title"><a href="{% url 'blog:post' slug=article.slug %}">{{article.title}}</a></h2>
-        <p class="post_snippet">{{article.content}}</p>
+        <p class="post_content">{{article.content}}</p>
         {% if article.thumb %}
         <img src="{{article.thumbnail.url}}" alt="user-img">
         {% endif %}
@@ -25,6 +25,19 @@
             <h3>{{comment.author}}:</h3>
             <p class="comment_content">{{comment.content}}</p>
             <p>{{comment.date}}</p>
+            {% if user == comment.author %}
+                <div class="comment_options">
+                        <form action="{% url 'blog:comment_update' id=comment.id slug=article.slug %}" method='POST'>
+                            {% csrf_token %}
+                            <textarea name="update_comment" id="update_comment" cols="30" rows="2" placeholder="Update your comment"></textarea>
+                            <button type="submit">Update</button>
+                        </form>
+                        <form action="{% url 'blog:comment_delete' id=comment.id slug=article.slug %}" method='POST'>
+                            {% csrf_token %}
+                            <button type="submit">Delete</button>
+                        </form>
+                </div>
+            {% endif %}
         </div>
         {% endfor %}
     </div>

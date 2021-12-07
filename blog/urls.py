@@ -17,6 +17,8 @@ urlpatterns = [
     path('update/<slug:slug>', views.article_update, name='update'),
     path('delete_proceed/<slug:slug>/', views.article_delete_proceed, name='delete_proceed'),
     path('delete/<slug:slug>/', views.article_delete, name='delete'),
+    path('update_comment/<id>/<slug:slug>', views.comment_update, name='comment_update'),
+    path('delete_comment/<id>/<slug:slug>', views.comment_delete, name='comment_delete'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

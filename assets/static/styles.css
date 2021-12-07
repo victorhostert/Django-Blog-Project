@@ -127,6 +127,13 @@ li{
     font-size: 2em;
     margin: 10px auto;
 }
+.post_content{
+    width: 80%;
+    margin: 20px auto;
+    font-size: 1.5em;
+    text-align: justify;
+    text-justify: inter-word;
+}
 .post_snippet{
     margin: 20px 30px;
     font-size: 1.5em;
@@ -294,4 +301,39 @@ button:hover{
     
     border: 3px solid rgb(107, 0, 184);
     border-radius: 20px;
+}
+.comment_options{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-content: center;
+    margin-top: 30px;
+}
+.comment_options button{
+    color: white;
+    background-color: indigo;
+    border: 3px solid white;
+    border-radius: 20px;
+    font-size: 0.9em;
+    padding: 10px;
+}
+.comment_options>*{
+    display: flex;
+    align-content: center;
+}
+.comment_options textarea{
+    padding: 10px;
+    margin: 5px;
+    border: 3px solid white;
+    border-radius: 20px;
+}
+.unauthorized{
+    background-color: rgb(54, 0, 93);
+    margin: 20px auto;
+    padding: 50px;
+    text-align: center;
+    width: 50%;
+}
+.unauthorized *{
+    margin: 20px;
 }
