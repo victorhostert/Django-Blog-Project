@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
+from django.http import HttpResponseRedirect
 from .models import Article, Category, Comment
 from . import forms
 from accounts.decorators import allowed_users
@@ -21,7 +22,7 @@ def about(request):
 
 def post(request, slug):
     article = get_object_or_404(Article, slug=slug)
-    comments = Comment.objects.filter(article=article)
+    comments = Comment.objects.filter(article=article)[::-1]
     if request.method == 'POST':
         form = forms.CommentForm(request.POST)
         if form.is_valid():
@@ -30,9 +31,10 @@ def post(request, slug):
             comment.article = article
             comment.author = request.user
             comment.save()
+            return HttpResponseRedirect(f'/{slug}/' + '#comments')
     else:
         form = forms.CommentForm()
-    return render(request, 'blog/post.html', {'article': article, 'form': form, 'comments': comments})
+    return render(request, 'blog/post.html/', {'article': article, 'form': form, 'comments': comments})
 
 def search(request):
     if request.method == 'POST':
@@ -106,11 +108,11 @@ def comment_update(request, slug, id):
     if request.method == 'POST':
         comment.content = request.POST.get('update_comment')
         comment.save()
-    return redirect('blog:post', slug=slug)
+    return HttpResponseRedirect(f'/{slug}/' + '#comments')
 
 @login_required(login_url="/auth/login/")
 def comment_delete(request, slug, id):
     comment = get_object_or_404(Comment, id=id)
     if request.method == 'POST':
         comment.delete()
-    return redirect('blog:post', slug=slug)
+    return HttpResponseRedirect(f'/{slug}/' + '#comments')
