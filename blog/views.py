@@ -82,7 +82,7 @@ def article_update(request, slug):
         form = forms.CreateArticle(request.POST, request.FILES, instance=article)
         if form.is_valid():
             form.save()
-            return redirect('blog:home')
+            return redirect('blog:post', slug=slug)
     else:
         form = forms.CreateArticle(instance=article)
     context = {'article': article, 'form': form,}
