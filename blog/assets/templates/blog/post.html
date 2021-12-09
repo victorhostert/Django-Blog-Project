@@ -21,7 +21,7 @@
     <div class="comments" id="comments">
         <h2>Comments:</h3>
         {% for comment in comments %}
-        <div class="comment">
+        <div class="comment" id="comment{{comment.id}}">
             <h3>{{comment.author}}:</h3>
             <p class="comment_content">{{comment.content}}</p>
             <p>{{comment.date}}</p>
