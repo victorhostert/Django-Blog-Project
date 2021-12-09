@@ -11,7 +11,9 @@ DEBUG = config('DEBUG')
 
 ALLOWED_HOSTS = [
     'blog-django-victor.herokuapp.com',
-    'herokuapp.com'
+    'herokuapp.com',
+    'localhost',
+    '127.0.0.1',
 ]
 
 
@@ -109,7 +111,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/assets/static/'
+STATIC_URL = '/staticfiles/'
 
 STATICFILES_DIRS = (
     BASE_DIR / 'assets/static/',
@@ -127,4 +129,4 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Configure Django App for Heroku.
-django_heroku.settings(locals())
+# django_heroku.settings(locals())

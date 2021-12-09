@@ -31,7 +31,7 @@ def post(request, slug):
             comment.article = article
             comment.author = request.user
             comment.save()
-            return HttpResponseRedirect(f'/{slug}/' + '#comments')
+            return HttpResponseRedirect(f'/{slug}/#comment{str(comment.id)}')
     else:
         form = forms.CommentForm()
     return render(request, 'blog/post.html/', {'article': article, 'form': form, 'comments': comments})
@@ -108,7 +108,8 @@ def comment_update(request, slug, id):
     if request.method == 'POST':
         comment.content = request.POST.get('update_comment')
         comment.save()
-    return HttpResponseRedirect(f'/{slug}/' + '#comments')
+
+        return HttpResponseRedirect(f'/{slug}/#comment{str(comment.id)}')
 
 @login_required(login_url="/auth/login/")
 def comment_delete(request, slug, id):
