@@ -7,7 +7,9 @@
 {% block 'content' %}
     <div class="post">
         <h2 class="post_title"><a href="{% url 'blog:post' slug=article.slug %}">{{article.title}}</a></h2>
-        <p class="post_content">{{article.content}}</p>
+        <div class="post_content">
+            <p>{{ article.content }}</p>
+        </div>
         {% if article.thumb %}
         <img src="{{article.thumbnail.url}}" alt="user-img">
         {% endif %}

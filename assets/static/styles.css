@@ -134,6 +134,9 @@ li{
     text-align: justify;
     text-justify: inter-word;
 }
+.post_content p{
+    white-space: break-spaces;
+}
 .post_snippet{
     margin: 20px 30px;
     font-size: 1.5em;
@@ -169,7 +172,6 @@ button:hover{
 .site_form{
     width: 50%;
     margin: 30px auto;
-
 }
 .site_form *{
     padding: 10px;
